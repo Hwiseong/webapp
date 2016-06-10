@@ -30,7 +30,48 @@ padding-top:10px;
 }
 .fotorama_caption{
 text-align:center;}
-</style></head>
+#pic_univ{
+float:left;
+margin-right:10px;
+margin-bottom:10px;
+-webkit-transition-property:width;
+-webkit-transition-duration:.3s;
+}
+.small{
+width:30%;
+}
+.large{
+width:100%;
+}
+.cleaner_both{
+cleaner:both;
+}
+.bold_style{
+font-weight:bold;
+color:#950000;
+}
+</style>
+</head>
+<head>
+<script type="text/javascript">
+$(document).ready(function(){
+   $("#pic_univ").data("flag","false");
+   $("#pic_univ").click(function(){
+	   var bflag=$("#pic_univ").data("flag");
+   if(bflag=="false"){
+	bflag="true";
+	$("#pic_univ").removeClass("small");
+	$("#pic_univ").addclass("large");
+	}else {
+		bflag="false";
+		$("#pic_univ").removeClass("large");
+		$("#pic_univ").addClass("small");
+	};
+	$("#pic_univ").data("flag",bflag"); 
+	//flag에 true값 들어감
+});
+   });
+   </script></head>
 <body>
 <div data-role="page" id="main">
 <div data-role="header" data-theme="b">
@@ -38,7 +79,7 @@ text-align:center;}
 </div>
 <div data-role="content">
 <ul data-role="listview" data-inset="true">
-<li><a href="#campus_images">
+<li><a href="#intro">
 <img src="images/pic_i.png" alt="" class="ui-li-thumb"/>
 <h3 class="title_style">캠퍼스 이미지</h3></a></li>
 <li><a href="#">
@@ -56,13 +97,33 @@ text-align:center;}
 <div data-role="header">
 <a href="#main" data-icon="home" data-direction="reverse" class="ui-btn-left">Home</a>
 <h1>캠퍼스 이미지</h1></div></div>
-<div data-role="content"></div>
-<<img src="pic/full/cb01.jpg" data-caption="호수공원"/>
-<img src="pic/full/cb02.jpg" data-caption="자유관"/>
-<img src="pic/full/cb03.jpg" data-caption="성실관"/>
-<img src="pic/full/cb04.jpg" data-caption="학생회관"/>
-<img src="pic/full/cb05.jpg" data-caption="자유관 앞 조형물"/>
-<img src="pic/full/cb06.jpg" data-caption="본관"/>
-<img src="pic/full/cb07.jpg" data-caption="채플관"/>
+<div data-role="content">
+<div class="fotorama" data-arrows="true" data-width="100%"
+data-ratio="965/643" data-allowfullscreen="true"
+data-nav="thumbs">
+<a href="pic/full/cb01.jpg"><img src="pic/full/cb01.jpg" data-caption="호수공원"/></a>
+<a href="pic/full/cb02.jpg"><img src="pic/full/cb02.jpg" data-caption="자유관"/></a>
+<a href="pic/full/cb03.jpg"><img src="pic/full/cb03.jpg" data-caption="성실관"/></a>
+<a href="pic/full/cb04.jpg"><img src="pic/full/cb04.jpg" data-caption="학생회관"/></a>
+<a href="pic/full/cb05.jpg"><img src="pic/full/cb05.jpg" data-caption="자유관 앞 조형물"/></a>
+<a href="pic/full/cb06.jpg"><img src="pic/full/cb06.jpg" data-caption="본관"/></a>
+<a href="pic/full/cb07.jpg"><img src="pic/full/cb07.jpg" data-caption="채플관"/></a>
+</div></div>
+<div data-role="footer">
+<h2>버추얼 대학교</h2></div>
+<div data-role="page" id="intro">
+<div data-role="header" data-theme="b">
+<a href="#main" data-icon="home" data-direcion="reverse" class="ui-btn-left">Home</a>
+<h1>대학교 소개</h1></div>
+<div data-role="content" data-theme="c">
+<img class="small" id="pic_univ" src="images/univ.jpg" alt="">
+<h2>"<strong class="bold_style">시대정신</strong>을 선도하는 열린<strong class="bold_style">학문공동체</strong>입니다"</h2>
+<div class="cleaner-both"></div>
+<p>경운대학교경운대학교</p>
+<p>경운대학교경운대학교경운대학교경운대학교경운대학교경운대학교</p>
+<p>총장경운대</p>
+</div>
+<div data-role="footer">
+<h2>버추얼대학교</h2></div></div>
 </body>
 </html>
